@@ -1,18 +1,18 @@
-//
-//  BaseUtil.swift
-//  RapidPDF
-//
-//  Created by 周波 on 2024/7/22.
-//
+import UIKit
 
-import SwiftUI
 
-struct BaseUtil: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+
+
+struct PdfItem: Identifiable {
+    let id = UUID()
+    let text: String
+    let imageName: String
+    
 }
 
-#Preview {
-    BaseUtil()
+
+extension UIApplication {
+    static var statusBarHeight: CGFloat {
+        return UIApplication.shared.windows.first?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+    }
 }

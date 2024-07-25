@@ -1,9 +1,3 @@
-//
-//  Service.swift
-//  EasyTranslate
-//
-//  Created by 周波 on 2024/6/12.
-//
 
 import SwiftUI
 

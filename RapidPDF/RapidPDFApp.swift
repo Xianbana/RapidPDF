@@ -11,8 +11,9 @@ import SwiftUI
 struct RapidPDFApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-//          MainView()
+            SplashView()
+//            ContentView()
+         //   ConvertView()
         }
     }
 }

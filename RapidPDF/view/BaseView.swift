@@ -1,5 +1,46 @@
 import SwiftUI
 import WebKit
+import Lottie
+
+
+
+struct LottiePlayer: UIViewRepresentable {
+    let name: String
+    let animationSpeed: CGFloat
+    let loopMode: LottieLoopMode
+    
+    init(
+        name: String,
+        animationSpeed: CGFloat = 1.0,
+        loopMode: LottieLoopMode = .loop
+    ) {
+        self.name = name
+        self.animationSpeed = animationSpeed
+        self.loopMode = loopMode
+    }
+    
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView(frame: .zero)
+        let animationView = LottieAnimationView(name: name)
+        animationView.loopMode = loopMode
+        animationView.animationSpeed = animationSpeed
+        animationView.contentMode = .scaleAspectFit
+        animationView.play()
+        
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(animationView)
+        NSLayoutConstraint.activate([
+            animationView.topAnchor.constraint(equalTo: view.topAnchor),
+            animationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            animationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            animationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+        
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {}
+}
 
 
 struct WebView: UIViewRepresentable {

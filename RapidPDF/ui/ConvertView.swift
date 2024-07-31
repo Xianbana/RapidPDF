@@ -8,13 +8,18 @@ struct ConvertView: View {
     @State private var size = "0.0"
     @State private var downUrl = ""
     var url:URL
+    @State private var uploadTask: URLSessionUploadTask?
+    @State private var isReturn = false
+    @State private var isCancel = false
+    @State private var showAlert = false
     var conversionArray :[Int]
     var body: some View {
         NavigationView {
             
             ZStack{
                 if isLoading {
-                    LoadingView()
+                    LoadingView(lottie: "loading",content: "Converting")
+                        .zIndex(/*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
                 }
                 
                 VStack(spacing: 20) {
@@ -46,7 +51,10 @@ struct ConvertView: View {
                     Text("Processing a file suchas pdf,please wait.")
                     
                     HStack {
-                        Image("ppt")
+                        Image(extractFileExtension(from: "\(url)"))
+                            .onAppear{
+                                print("image:",url,extractFileExtension(from: "\(url)"))
+                            }
                         
                         Text(url.lastPathComponent)
                     }
@@ -54,7 +62,11 @@ struct ConvertView: View {
                     
                     
                     HStack(){
-                        Button(action: {}) {
+                        Button(action: {
+                            isReturn = true
+                            uploadTask?.cancel()
+                            
+                        }) {
                             HStack {
                                 Image("backc")
                                 Text("Return")
@@ -96,8 +108,13 @@ struct ConvertView: View {
                     Spacer()
                 }
                 
+              
                 
-                NavigationLink(destination: CompletedView(url: downUrl,title:getFileConversionDescription(from: conversionArray)),isActive: $isCompeleted) {
+                NavigationLink(destination: CompletedView(url: downUrl,title:getFileConversionDescription(from: conversionArray)),isActive: $isCompeleted ) {
+                    EmptyView()
+                } .hidden()
+                
+                NavigationLink(destination: ContentView(),isActive: $isReturn) {
                     EmptyView()
                 } .hidden()
                 
@@ -111,14 +128,15 @@ struct ConvertView: View {
                 }
                 
                 //   let fileURL = URL(fileURLWithPath: url)
-                let uploadURL = URL(string: "https://cnstus.com/pdfConversionWizard/transition")!
-            
-                uploadFile(fileURL: url, filetype: fileTypeString(from: conversionArray[0]), outputtype: fileTypeString(from: conversionArray[1]), to: uploadURL, progress: { percent in
+                let uploadURL = URL(string: "https://yotepu.com/PDFConverterPro/conversion")!
+                uploadTask = uploadFile(fileURL: url, filetype: fileTypeString(from: conversionArray[0]), outputtype: fileTypeString(from: conversionArray[1]), to: uploadURL, progress: { percent in
                     print(percent)
                     DispatchQueue.main.async {
                         uploadProgress = CGFloat(percent * 100)
                         if percent >= 1{
-                            self.isLoading=true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                        isLoading = true
+                                    }
                         }
                     }
                 }) { result in
@@ -134,21 +152,35 @@ struct ConvertView: View {
                                     isCompeleted = true
                                     downUrl = response.result
                                 }
+                                else{
+                                    showAlert = true
+                                }
                             } catch {
-                                print("Failed to decode JSON: \(error)")
+                                showAlert = true
                             }
                         }
-                        print(message)
+                       
                     case .failure(let error):
-                        print("Upload failed with error: \(error)")
+                        showAlert = true
                     }
                 }
                 
+              
+                
             }
+            .alert(isPresented: $showAlert) {
+                           Alert(
+                               title: Text("Conversion results"),
+                               message: Text("Conversion failed, please try again later."),
+                               dismissButton: .default(Text("OK"))
+                           )
+                       }
             .edgesIgnoringSafeArea(.all)
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
-        }.navigationBarHidden(true)
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
     }
 }
@@ -249,16 +281,22 @@ class ProgressViewModel: ObservableObject {
 
 
 struct LoadingView: View {
+    var lottie:String
+    var content:String
     var body: some View {
         VStack {
-            ProgressView("正在转换...")
-                .progressViewStyle(CircularProgressViewStyle())
+            LottiePlayer(name: lottie)
+                .frame(width: 180, height: 180)
                 .padding()
-                .background(Color.black.opacity(0.8))
-                .foregroundColor(.white)
-                .cornerRadius(10)
+            Text(content)
+                .bold()
+                .padding(.top,-10)
+            Spacer()
         }
-        .frame(width: 200, height: 200)
+        .frame(width: 250, height: 250)
+        .background(Color("mainback"))
+       
+        .cornerRadius(20)
         .shadow(radius: 10)
     }
 }

@@ -28,7 +28,7 @@ struct SettingView: View {
             
             
             SettingsItem(image: "terms", title: "Terms of Service")
-                .padding(.top,20)
+                .padding(.top,10)
                 .onTapGesture {
                     self.isService.toggle()
                 }
@@ -39,6 +39,9 @@ struct SettingView: View {
                 }
             
             SettingsItem(image: "share", title: "Share")
+                .onTapGesture(perform: {
+                    shareText("Search for PDF Converter Pro in App Store")
+                })
             
             SettingsItem(image: "contact", title: "Contact us")
                                .onTapGesture {
@@ -47,7 +50,7 @@ struct SettingView: View {
                                .alert(isPresented: $showAlert) {
                                    Alert(
                                        title: Text("Contact Us"),
-                                       message: Text("Please proceed through \n1196@qq.com \nTell us"),
+                                       message: Text("Please proceed through \n captainone@foxmail.com   \nTell us"),
                                        dismissButton: .default(Text("Close"))
                                    )
                                }
@@ -64,7 +67,25 @@ struct SettingView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .navigationBarHidden(true)
+        .navigationViewStyle(StackNavigationViewStyle())
         
+    }
+    func shareText(_ text: String) {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let rootViewController = windowScene.windows.first?.rootViewController else {
+            return
+        }
+        
+        let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        
+        // 在 iPad 上设置 sourceView
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceView = rootViewController.view
+            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        
+        rootViewController.present(activityViewController, animated: true, completion: nil)
     }
 }
 

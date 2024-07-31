@@ -1,24 +1,27 @@
 import SwiftUI
+
 struct SelectFileView: View {
     @State var isSelect = false
     @Binding var showDetail: Bool
     @State private var selectedFileURL: URL?
     @State private var showDocumentPicker = false
-    @State private var showFilePreview = false
+    @State private var selectImage = false
     @State private var isConvert = false
     @State var isMain = false
-   @State private var conversion :[Int] = [0,1]
+    @State private var conversion: [Int] = [0, 1]
+    @State private var showAlert = false
+    
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        NavigationView{
-            VStack(spacing:0){
+        NavigationView {
+            VStack(spacing: 0) {
                 ZStack(alignment: .bottom) {
                     Rectangle()
-                        .frame(height: UIApplication.statusBarHeight+44)
+                        .frame(height: UIApplication.statusBarHeight + 44)
                         .foregroundColor(Color.red)
                     
-                    HStack{
+                    HStack {
                         Image("back")
                             .padding(.leading)
                             .onTapGesture {
@@ -32,106 +35,111 @@ struct SelectFileView: View {
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
-                            .padding(.trailing,36)
+                            .padding(.trailing, 36)
                         Spacer()
-                        
-                    }.padding(.bottom,5)
+                    }
+                    .padding(.bottom, 5)
                 }
                 
-                
-                Image("select")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width,height: UIScreen.main.bounds.height / 2.03)
-                
-                VStack(spacing:0){
-                    HStack{
-                        Text("Convert PDF to Word")
-                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                            .bold()
-                        Spacer()
+                GeometryReader { geometry in
+                    VStack {
+                        Image("select")
+                            .resizable(resizingMode: .stretch)
+                            .aspectRatio(contentMode: .fit)
                         
-                    }.padding(.leading)
-                    TextView(text: "Perfect corwersion data")
-                    TextView(text: "Secondary editing of documents is more convenient")
-                    TextView(text: "Easy copy of text data and real-time  comversion")
-                    TextView(text: "Easy copy of text data and real-time  comversion")
-                    
-                    
-                    
-                    Button(action: {
-                        self.isSelect.toggle()
-                        showDocumentPicker = true
-                       
-                    }) {
-                        Text("Select the file")
-                            .bold()
-                            .foregroundColor(.white)
+                        
+                        VStack(spacing: 10) {
+                            HStack {
+                                Text("Convert PDF to Word")
+                                    .font(.title)
+                                    .bold()
+                                Spacer()
+                            }
+                            .padding(.leading)
+                            
+                            TextView(text: "Perfect conversion data")
+                            TextView(text: "Secondary editing of documents is more convenient")
+                            TextView(text: "Easy copy of text data and real-time conversion")
+                            TextView(text: "Easy copy of text data and real-time conversion")
+                            
+                            Button(action: {
+                                self.isSelect.toggle()
+                                showDocumentPicker = true
+//                                if conversion.first == 5 || conversion.first == 2 {
+//                                    selectImage = true
+//
+//                                
+//                                }else{
+//                                    self.isSelect.toggle()
+//                                    showDocumentPicker = true
+//                                }
+                                
+                            }) {
+                                Text("Select the file")
+                                    .bold()
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.red)
+                                    .cornerRadius(30)
+                                    .font(.title2)
+                            }
                             .padding()
-                            .background(Color.red)
-                            .cornerRadius(30)
-                            .font(.title2)
+                        }
+                        .padding(.top, 20)
+                        .background(Color("mainback"))
                         
+                        Spacer()
+                    }.sheet(isPresented: $selectImage) {
+                        ImagePicker { url in
+                            selectedFileURL = url
+                            self.isConvert.toggle()
+                        }
                     }
-                    .padding()
-                    
-                    
-                    Spacer()
-                }.background(Color("mainback"))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
                 
-                
-              
-                
-                NavigationLink(destination: ContentView(),isActive: $isMain) {
+                NavigationLink(destination: ContentView(), isActive: $isMain) {
                     EmptyView()
-                } .hidden()
+                }
+                .hidden()
                 
-                NavigationLink(destination: ConvertView(url: selectedFileURL ?? URL(string: "https://cnstus.com/pdfConversionWizard/transition")!,conversionArray:conversion),isActive: $isConvert) {
+                NavigationLink(destination: ConvertView(url: selectedFileURL ?? URL(string: "https://yotepu.com/PDFConverterPro/conversion")!, conversionArray: conversion), isActive: $isConvert) {
                     EmptyView()
-                } .hidden()
-                
-                
-                Spacer()
+                }
+                .hidden()
             }
-            .onAppear{
-               conversion = getConversionArray(forKey: "conversionArrayKey")
+            .onAppear {
+                conversion = getConversionArray(forKey: "conversionArrayKey")
+                
+                print("select file data",conversion)
             }
             .edgesIgnoringSafeArea(.all)
-                .navigationBarHidden(true)
-                .navigationBarBackButtonHidden(true)
-            
-        }.navigationBarHidden(true)
+            .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
-            .sheet(isPresented: $showDocumentPicker) {
-                
-             let type =  utTypes(for: conversion[0])
-               
-                DocumentPicker(selectedFileURL: $selectedFileURL,type:type) { fileURL in
-                    
+        }
+        .navigationBarHidden(true)
+        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarBackButtonHidden(true)
+        .sheet(isPresented: $showDocumentPicker) {
+            let type = utTypes(for: conversion[0])
+            
+            DocumentPicker(selectedFileURL: $selectedFileURL, type: type) { fileURL in
+                if isFileLargerThan5MB(atPath: "\(fileURL)") {
+                    showAlert = true
+                } else {
                     selectedFileURL = fileURL
                     self.isConvert.toggle()
-                    
-               }
-            }
-            .sheet(isPresented: $showFilePreview) {
-                if let fileURL = selectedFileURL {
-                    
-                
-                 FilePreviewController(url: fileURL, isPresented: $showFilePreview)
                 }
             }
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("File Size Check"),
+                message: Text("File size cannot exceed 5MB."),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
 }
-
-
-//struct SelectFileView_Previews: PreviewProvider {
-//    @State static var showDetail = true
-//    
-//    static var previews: some View {
-//        SelectFileView(showDetail: $showDetail,conversionArray:[0,1])
-//    }
-//}
 
 struct TextView: View {
     var text: String
@@ -148,5 +156,11 @@ struct TextView: View {
             Spacer()
         }
         .padding(.leading)
+    }
+}
+
+struct SelectFileView_Previews: PreviewProvider {
+    static var previews: some View {
+        SelectFileView(showDetail: .constant(false))
     }
 }

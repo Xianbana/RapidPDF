@@ -10,7 +10,7 @@ struct Service: View {
                                self.presentationMode.wrappedValue.dismiss()
                            }
                            GeometryReader { geometry in
-                                          WebView(url: URL(string: "https://www.easytranslate.top/service.html")!)
+                                          WebView(url: URL(string: "https://easy-pdf-converter.site/service.html")!)
                                               .frame(height: geometry.size.height ) // 44是标题栏的高度
                                       }
                        }

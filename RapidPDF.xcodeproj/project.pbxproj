@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C71DBCEB2C533AD0009052EF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C71DBCEA2C533AD0009052EF /* Lottie */; };
+		C71DBCEE2C533CCC009052EF /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = C71DBCED2C533CCC009052EF /* loading.json */; };
+		C71DBCF32C537C2A009052EF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71DBCF22C537C2A009052EF /* DatabaseManager.swift */; };
+		C71DBCF92C5749BA009052EF /* download.json in Resources */ = {isa = PBXBuildFile; fileRef = C71DBCF82C5749BA009052EF /* download.json */; };
 		C72D0D162C4DF502008F4F93 /* RapidPDFApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72D0D152C4DF502008F4F93 /* RapidPDFApp.swift */; };
 		C72D0D182C4DF502008F4F93 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72D0D172C4DF502008F4F93 /* ContentView.swift */; };
 		C72D0D1A2C4DF504008F4F93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C72D0D192C4DF504008F4F93 /* Assets.xcassets */; };
@@ -18,10 +22,9 @@
 		C72D0D312C4E3192008F4F93 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72D0D302C4E3192008F4F93 /* BaseView.swift */; };
 		C72D0D332C4E510A008F4F93 /* DataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72D0D322C4E510A008F4F93 /* DataUtil.swift */; };
 		C72D0D362C4E542D008F4F93 /* SelectFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72D0D352C4E542D008F4F93 /* SelectFileView.swift */; };
-		C7C806E52C4F895F00BF6A02 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C806E42C4F895F00BF6A02 /* DocumentPicker.swift */; };
+		C7931BFF2C57A3E700817D25 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7931BFE2C57A3E700817D25 /* RecordManager.swift */; };
 		C7C806EA2C509AA900BF6A02 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C806E72C509AA900BF6A02 /* Service.swift */; };
 		C7C806EB2C509AA900BF6A02 /* Privacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C806E82C509AA900BF6A02 /* Privacy.swift */; };
-		C7C806EE2C509CD700BF6A02 /* DocumentPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C806ED2C509CD700BF6A02 /* DocumentPreviewViewController.swift */; };
 		C7C806F02C50CB4E00BF6A02 /* ConvertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C806EF2C50CB4E00BF6A02 /* ConvertView.swift */; };
 		C7C806F22C50D23A00BF6A02 /* CompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C806F12C50D23A00BF6A02 /* CompletedView.swift */; };
 		C7C806F52C50E6E000BF6A02 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = C7C806F42C50E6E000BF6A02 /* SQLite */; };
@@ -29,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C71DBCED2C533CCC009052EF /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		C71DBCF22C537C2A009052EF /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		C71DBCF82C5749BA009052EF /* download.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = download.json; sourceTree = "<group>"; };
 		C72D0D122C4DF502008F4F93 /* RapidPDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RapidPDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72D0D152C4DF502008F4F93 /* RapidPDFApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidPDFApp.swift; sourceTree = "<group>"; };
 		C72D0D172C4DF502008F4F93 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,10 +47,10 @@
 		C72D0D302C4E3192008F4F93 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		C72D0D322C4E510A008F4F93 /* DataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtil.swift; sourceTree = "<group>"; };
 		C72D0D352C4E542D008F4F93 /* SelectFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFileView.swift; sourceTree = "<group>"; };
-		C7C806E42C4F895F00BF6A02 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
+		C7931BFE2C57A3E700817D25 /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
+		C7931C042C58B90B00817D25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C7C806E72C509AA900BF6A02 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		C7C806E82C509AA900BF6A02 /* Privacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Privacy.swift; sourceTree = "<group>"; };
-		C7C806ED2C509CD700BF6A02 /* DocumentPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPreviewViewController.swift; sourceTree = "<group>"; };
 		C7C806EF2C50CB4E00BF6A02 /* ConvertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertView.swift; sourceTree = "<group>"; };
 		C7C806F12C50D23A00BF6A02 /* CompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedView.swift; sourceTree = "<group>"; };
 		C7C806F62C50E81300BF6A02 /* SplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -56,12 +62,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7C806F52C50E6E000BF6A02 /* SQLite in Frameworks */,
+				C71DBCEB2C533AD0009052EF /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C71DBCEC2C533CA3009052EF /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				C71DBCED2C533CCC009052EF /* loading.json */,
+				C71DBCF82C5749BA009052EF /* download.json */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		C71DBCF12C537C18009052EF /* db */ = {
+			isa = PBXGroup;
+			children = (
+				C71DBCF22C537C2A009052EF /* DatabaseManager.swift */,
+			);
+			path = db;
+			sourceTree = "<group>";
+		};
 		C72D0D092C4DF502008F4F93 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +105,9 @@
 		C72D0D142C4DF502008F4F93 /* RapidPDF */ = {
 			isa = PBXGroup;
 			children = (
+				C7931C042C58B90B00817D25 /* Info.plist */,
+				C71DBCF12C537C18009052EF /* db */,
+				C71DBCEC2C533CA3009052EF /* resource */,
 				C7C806E62C509AA900BF6A02 /* server */,
 				C72D0D342C4E541C008F4F93 /* ui */,
 				C72D0D2D2C4E2794008F4F93 /* util */,
@@ -106,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				C72D0D302C4E3192008F4F93 /* BaseView.swift */,
+				C7931BFE2C57A3E700817D25 /* RecordManager.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -125,8 +153,6 @@
 			children = (
 				C72D0D2E2C4E27A7008F4F93 /* BaseUtil.swift */,
 				C72D0D322C4E510A008F4F93 /* DataUtil.swift */,
-				C7C806E42C4F895F00BF6A02 /* DocumentPicker.swift */,
-				C7C806ED2C509CD700BF6A02 /* DocumentPreviewViewController.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -169,6 +195,7 @@
 			name = RapidPDF;
 			packageProductDependencies = (
 				C7C806F42C50E6E000BF6A02 /* SQLite */,
+				C71DBCEA2C533AD0009052EF /* Lottie */,
 			);
 			productName = RapidPDF;
 			productReference = C72D0D122C4DF502008F4F93 /* RapidPDF.app */;
@@ -200,6 +227,7 @@
 			mainGroup = C72D0D092C4DF502008F4F93;
 			packageReferences = (
 				C7C806F32C50E6E000BF6A02 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+				C71DBCE92C533AD0009052EF /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = C72D0D132C4DF502008F4F93 /* Products */;
 			projectDirPath = "";
@@ -217,6 +245,8 @@
 			files = (
 				C72D0D1D2C4DF504008F4F93 /* Preview Assets.xcassets in Resources */,
 				C72D0D1A2C4DF504008F4F93 /* Assets.xcassets in Resources */,
+				C71DBCEE2C533CCC009052EF /* loading.json in Resources */,
+				C71DBCF92C5749BA009052EF /* download.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,15 +257,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7C806EE2C509CD700BF6A02 /* DocumentPreviewViewController.swift in Sources */,
 				C72D0D2F2C4E27A7008F4F93 /* BaseUtil.swift in Sources */,
-				C7C806E52C4F895F00BF6A02 /* DocumentPicker.swift in Sources */,
 				C72D0D362C4E542D008F4F93 /* SelectFileView.swift in Sources */,
+				C71DBCF32C537C2A009052EF /* DatabaseManager.swift in Sources */,
 				C72D0D332C4E510A008F4F93 /* DataUtil.swift in Sources */,
 				C72D0D182C4DF502008F4F93 /* ContentView.swift in Sources */,
 				C7C806F22C50D23A00BF6A02 /* CompletedView.swift in Sources */,
 				C7C806EB2C509AA900BF6A02 /* Privacy.swift in Sources */,
 				C7C806EA2C509AA900BF6A02 /* Service.swift in Sources */,
+				C7931BFF2C57A3E700817D25 /* RecordManager.swift in Sources */,
 				C72D0D282C4DFA25008F4F93 /* HomeView.swift in Sources */,
 				C72D0D2C2C4DFA43008F4F93 /* SettingView.swift in Sources */,
 				C7C806F02C50CB4E00BF6A02 /* ConvertView.swift in Sources */,
@@ -379,12 +409,16 @@
 				DEVELOPMENT_TEAM = K4XFC66R7B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RapidPDF/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "PDF Converter Pro";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "If you need to upload a gallery file for conversion, please allow us to use album permissions.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -409,12 +443,16 @@
 				DEVELOPMENT_TEAM = K4XFC66R7B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RapidPDF/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "PDF Converter Pro";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "If you need to upload a gallery file for conversion, please allow us to use album permissions.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,6 +490,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C71DBCE92C533AD0009052EF /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
 		C7C806F32C50E6E000BF6A02 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
@@ -463,6 +509,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C71DBCEA2C533AD0009052EF /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C71DBCE92C533AD0009052EF /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
 		C7C806F42C50E6E000BF6A02 /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C7C806F32C50E6E000BF6A02 /* XCRemoteSwiftPackageReference "SQLite.swift" */;

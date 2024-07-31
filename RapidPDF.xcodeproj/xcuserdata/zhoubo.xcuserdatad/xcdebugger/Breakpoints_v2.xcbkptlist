@@ -7,70 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A45E6167-3B50-420B-8CC6-336DB13B2CF0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RapidPDF/ui/SelectFileView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3DE8F7E8-C27B-4509-9684-256DA890272A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RapidPDF/ui/SelectFileView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10"
-            landmarkName = "SelectFileView"
-            landmarkType = "14">
-            <Locations>
-               <Location
-                  uuid = "3DE8F7E8-C27B-4509-9684-256DA890272A - de2e90e28ca576a6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RapidPDF.SelectFileView.presentationMode.getter : SwiftUI.Binding&lt;SwiftUI.PresentationMode&gt;"
-                  moduleName = "RapidPDF"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhoubo/Desktop/code/RapidPDF/%3Ccompiler-generated%3E"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "3DE8F7E8-C27B-4509-9684-256DA890272A - 539173b5ff14a20e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "default argument 4 of RapidPDF.SelectFileView.init(isSelect: Swift.Bool, showDetail: SwiftUI.Binding&lt;Swift.Bool&gt;, isMain: Swift.Bool, conversionArray: Swift.Array&lt;Swift.Int&gt;, presentationMode: SwiftUI.Environment&lt;SwiftUI.Binding&lt;SwiftUI.PresentationMode&gt;&gt;) -&gt; RapidPDF.SelectFileView"
-                  moduleName = "RapidPDF"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhoubo/Desktop/code/RapidPDF/RapidPDF/ui/SelectFileView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "4E1B3D80-16FD-4045-ABE7-9CB6CFD49FAB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -78,8 +14,8 @@
             filePath = "RapidPDF/navigation/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -114,6 +50,22 @@
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5C9C4F2B-F722-4B84-9286-533852BD89C0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RapidPDF/navigation/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

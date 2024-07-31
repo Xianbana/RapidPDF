@@ -9,106 +9,104 @@ struct SplashView: View {
 //    @StateObject var adManager = AppOpenAdManager.shared
 
     var body: some View {
-
         NavigationView {
-            ZStack {
-               
+            VStack {
+                Spacer()
                 
-                VStack {
-                    Spacer()
-                    Image("icon")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 200.0, height: 200.0)
-                        .cornerRadius(10.0)
-                      
-                    Spacer()
-                    
-                    ZStack {
-                       
-                        Rectangle()
-                            .fill(Color.white)
-                            .frame(width: 262, height: 10)
-                            .cornerRadius(30.0)
-                        
-                        // 进度条
-                        ProgressView(value: progress, total: 100)
-                            .padding([.leading, .trailing], 5)
-                            .frame(width: 262, height: 200)
-                            .progressViewStyle(LinearProgressViewStyle(tint: Color.red))
-                            .onAppear {
-                                // 开始加载广告
-                               // startGoogleMobileAdsSDK()
-                                
-                              
-                                Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true) { timer in
-                                    progress += 1
-                                    progressInt += 1
-                                    if progressInt >= 100 {
-                                        timer.invalidate()
-                                       
-                                        isCompleted = true
-                                    }
-                                }
-                            }
-                    }
-                    
-                    Spacer()
-                    Image("startbg").edgesIgnoringSafeArea(.bottom)
-                }
-                .navigationBarHidden(true)
                 
               
+
+                
+                Image("icon")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 200.0, height: 200.0)
+                    .cornerRadius(10.0)
+                
+                // 进度条
+                ProgressView(value: progress, total: 100)
+                    .padding([.leading, .trailing], 5)
+                    .frame(width: 200)
+                    .progressViewStyle(LinearProgressViewStyle(tint: Color.red))
+                    .padding(.top, 30)
+                    .onAppear {
+                        // 开始加载广告
+                        // startGoogleMobileAdsSDK()
+                        Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true) { timer in
+                            progress += 1
+                            progressInt += 1
+                            if progressInt >= 100 {
+                                timer.invalidate()
+                                isCompleted = true
+                            }
+                        }
+                    }
+                
+                Spacer()
+                
+                Image("st")
+                    .resizable(resizingMode: .stretch)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(maxWidth: .infinity, maxHeight: 200)
+                    .edgesIgnoringSafeArea(.all)
+            }
+            .navigationBarHidden(true)
+            .background(
                 NavigationLink(destination: ContentView(), isActive: $isCompleted) {
                     EmptyView()
                 }
                 .hidden()
-            }
-            .navigationBarHidden(true)
-//            .onReceive(adManager.$adClosed) { adClosed in
-//                // 处理广告关闭事件
-//                if adClosed {
-//                    print("广告已关闭")
-//                    
-//                    closeAd = true
-//                    // 在这里执行任何您想要的操作，例如导航到主内容视图等
-//                }
-//            }
-
-
-        }.navigationViewStyle(StackNavigationViewStyle())
-
+            )
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
-//    // 启动Google Mobile Ads SDK
-//    private func startGoogleMobileAdsSDK() {
-//        DispatchQueue.main.async {
-//            GADMobileAds.sharedInstance().start { status in
-//                // 加载广告
-//                loadAd()
-//            }
-//        }
-//    }
-//
-//    // 加载广告
-//    private func loadAd() {
-//        Task {
-//            await AppOpenAdManager.shared.loadAd()
-//            adLoaded = true
-//            // 尝试展示广告
-//            showAdIfAvailable()
-//        }
-//    }
-//
-//    // 如果广告已加载，则展示广告
-//    private func showAdIfAvailable() {
-//        if adLoaded {
-//            DispatchQueue.main.async {
-//                AppOpenAdManager.shared.showAdIfAvailable()
-//            }
-//        }
-//    }
+    
+    func menuButton(imageName: String, title: String) -> some View {
+        VStack(spacing: 0) {
+            HStack {
+                Image(imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24) // 设置图片大小，可以根据需要调整
+                Text(title)
+                    .font(.system(size: 16))
+                    .padding(.leading, 8) // 图片和文本之间的间距
+                Spacer()
+            }
+            .padding(.all, 10)
+            
+            Rectangle()
+                .foregroundColor(.blue)
+                .frame(maxWidth: .infinity, maxHeight: 10) // 10 是分割线的高度
+        }
+    }
 }
+
 #Preview {
     SplashView()
+}
+struct MenuItem: View {
+    var imageName: String
+    var text: String
+    var rectangleHeight: CGFloat
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack {
+                Spacer()
+                Image(imageName)
+                Text(text)
+                    .frame(width: 100, alignment: .leading) // 设置固定宽度
+                Spacer()
+            }
+            .padding(.all, 10)
+            
+            if rectangleHeight > 0 {
+                Rectangle()
+                    .foregroundColor(Color("mainback"))
+                    .frame(maxWidth: .infinity, maxHeight: rectangleHeight)
+            }
+        }
+    }
 }

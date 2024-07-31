@@ -12,8 +12,7 @@ struct RapidPDFApp: App {
     var body: some Scene {
         WindowGroup {
             SplashView()
-//            ContentView()
-         //   ConvertView()
+
         }
     }
 }
